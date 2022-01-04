@@ -11,6 +11,7 @@
 
     <modules>
         <module>cloud-provider-payment</module>
+        <module>cloud-consumer-order</module>
     </modules>
 
     <!--参数管理-->
