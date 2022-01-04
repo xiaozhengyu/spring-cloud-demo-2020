@@ -3,6 +3,7 @@ package com.xzy.repository;
 import com.xzy.entities.PaymentEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
  * @author xzy
  * @date 2022/1/4 15:46
  */
+@Repository
 @Mapper
 public interface PaymentMapper {
     /**

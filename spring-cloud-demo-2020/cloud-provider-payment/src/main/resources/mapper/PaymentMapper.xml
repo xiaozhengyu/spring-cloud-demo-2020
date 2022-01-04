@@ -10,13 +10,13 @@
     </resultMap>
     
     <!--新增支付信息-->
-    <insert id = "save" useGeneratedKeys = "true" keyColumn = "id">
+    <insert id = "save" parameterType = "com.xzy.entities.PaymentEntity" useGeneratedKeys = "true" keyProperty = "id">
         insert into payment(serial)
         values (#{serial})
     </insert>
     
     <!--根据ID查找支付信息-->
-    <select id = "findByPrimaryKey" resultMap = "baseResultMap">
+    <select id = "findByPrimaryKey" parameterType = "long" resultMap = "baseResultMap">
         select id, serial
         from payment
         where id = #{id}
