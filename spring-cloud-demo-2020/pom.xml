@@ -13,6 +13,7 @@
         <module>cloud-provider-payment</module>
         <module>cloud-consumer-order</module>
         <module>cloud-api-common</module>
+        <module>cloud-eureka</module>
     </modules>
 
     <!--参数管理-->

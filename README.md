@@ -1,6 +1,6 @@
 # spring-cloud-demo-2020
 
-**分支：**phase1-microservices-architecture
+**分支**：phase1-microservices-architecture
 
 **说明：**微服务架构编码构建
 
