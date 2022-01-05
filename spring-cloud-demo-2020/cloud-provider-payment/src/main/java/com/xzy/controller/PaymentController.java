@@ -1,13 +1,15 @@
 package com.xzy.controller;
 
-import com.xzy.common.msg.Message;
-import com.xzy.common.msg.MessageBox;
 import com.xzy.entities.PaymentEntity;
+import com.xzy.msg.Message;
+import com.xzy.msg.MessageBox;
 import com.xzy.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+
+;
 
 /**
  * 支付Controller

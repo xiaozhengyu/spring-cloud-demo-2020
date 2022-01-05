@@ -1,4 +1,4 @@
-package com.xzy.common.msg;
+package com.xzy.msg;
 
 /**
  * @author xzy

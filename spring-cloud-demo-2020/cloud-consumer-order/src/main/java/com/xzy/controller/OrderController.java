@@ -1,11 +1,11 @@
 package com.xzy.controller;
 
-import com.xzy.common.msg.MessageBox;
 import com.xzy.entities.PaymentEntity;
+import com.xzy.msg.Message;
+import com.xzy.msg.MessageBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-import com.xzy.common.msg.Message;
 
 /**
  * 订单Controller

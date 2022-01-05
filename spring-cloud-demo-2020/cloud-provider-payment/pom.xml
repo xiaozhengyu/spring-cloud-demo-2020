@@ -10,8 +10,16 @@
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>cloud-provider-payment</artifactId>
+    <description>支付服务</description>
 
     <dependencies>
+        <!--other module-->
+        <dependency>
+            <groupId>org.xzy</groupId>
+            <artifactId>cloud-api-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--spring-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
