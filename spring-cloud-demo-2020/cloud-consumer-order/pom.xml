@@ -13,6 +13,11 @@
     <description>订单服务</description>
     
     <dependencies>
+        <!--eureka-client-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <!--other module-->
         <dependency>
             <groupId>org.xzy</groupId>
