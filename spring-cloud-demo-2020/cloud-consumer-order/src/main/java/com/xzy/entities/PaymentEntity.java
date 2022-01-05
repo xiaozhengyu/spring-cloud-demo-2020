@@ -1,4 +1,4 @@
-package xzy.entities;
+package com.xzy.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

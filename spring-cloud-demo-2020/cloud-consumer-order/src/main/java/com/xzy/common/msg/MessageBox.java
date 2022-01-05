@@ -1,4 +1,4 @@
-package xzy.common.msg;
+package com.xzy.common.msg;
 
 /**
  * @param <T>

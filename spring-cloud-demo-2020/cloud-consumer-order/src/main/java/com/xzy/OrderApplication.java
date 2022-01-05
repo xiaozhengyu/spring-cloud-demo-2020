@@ -1,4 +1,4 @@
-package xzy;
+package com.xzy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
