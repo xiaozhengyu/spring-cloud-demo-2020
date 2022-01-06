@@ -18,6 +18,7 @@ mybatis:
 eureka:
   instance:
     instance-id: cloud-payment-service8002
+    prefer-ip-address: true
   client:
     register-with-eureka: true # 是否向注册中心注册自己
     fetch-registry: true # 是否需要检索服务
