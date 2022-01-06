@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 8002
 
 spring:
   application:
@@ -20,4 +20,4 @@ eureka:
     register-with-eureka: true # 是否向注册中心注册自己
     fetch-registry: true # 是否需要检索服务
     service-url:
-      defaultZone: http://localhost:7001/eureka/
+      defaultZone: http://eureka-register1:7001/eureka/,http://eureka-register2:7002/eureka/,http://eureka-register3:7003/eureka/
