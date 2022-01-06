@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping(path = "/order")
 public class OrderController {
-    private final String PAYMENT_URL = "http://127.0.0.1:8001/payment";
+    private final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
 
     private final RestTemplate restTemplate;
 
@@ -33,7 +33,7 @@ public class OrderController {
      */
     @PostMapping
     Message save(@RequestBody PaymentEntity paymentEntity) {
-        return restTemplate.postForObject(PAYMENT_URL, paymentEntity, Message.class);
+        return restTemplate.postForObject(PAYMENT_URL + "/payment", paymentEntity, Message.class);
     }
 
     /**
@@ -44,6 +44,11 @@ public class OrderController {
      */
     @GetMapping("/{id}")
     MessageBox<PaymentEntity> findByPrimaryKey(@PathVariable("id") Long id) {
-        return restTemplate.getForObject(PAYMENT_URL + "/" + id, MessageBox.class);
+        return restTemplate.getForObject(PAYMENT_URL + "/payment/" + id, MessageBox.class);
+    }
+
+    @GetMapping("/health")
+    MessageBox<String> getServerInfo() {
+        return restTemplate.getForObject(PAYMENT_URL + "/health", MessageBox.class);
     }
 }
