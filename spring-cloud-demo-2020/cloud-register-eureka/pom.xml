@@ -9,7 +9,7 @@
     </parent>
     
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>cloud-eureka</artifactId>
+    <artifactId>cloud-register-eureka</artifactId>
     <description>负责注册中心</description>
     
     <dependencies>
