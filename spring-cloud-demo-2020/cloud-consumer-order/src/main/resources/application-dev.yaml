@@ -16,6 +16,8 @@ mybatis:
   type-aliases-package: com.xzy.entities
 
 eureka:
+  instance:
+    instance-id: cloud-order-service9002
   client:
     register-with-eureka: true # 是否向注册中心注册自己
     fetch-registry: true # 是否需要检索服务
