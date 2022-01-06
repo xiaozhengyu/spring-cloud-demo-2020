@@ -49,6 +49,6 @@ public class OrderController {
 
     @GetMapping("/health")
     MessageBox<String> getServerInfo() {
-        return restTemplate.getForObject(PAYMENT_URL + "/health", MessageBox.class);
+        return restTemplate.getForObject(PAYMENT_URL + "/health/service", MessageBox.class);
     }
 }
