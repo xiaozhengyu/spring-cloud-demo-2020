@@ -1,7 +1,6 @@
 package com.xzy.service;
 
 import com.xzy.entities.PaymentEntity;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.Optional;
 
@@ -26,5 +25,5 @@ public interface PaymentService {
      * @param id ID
      * @return 支付信息
      */
-    Optional<PaymentEntity> findByPrimaryKey(@Param("id") Long id);
+    Optional<PaymentEntity> findByPrimaryKey(Long id);
 }
