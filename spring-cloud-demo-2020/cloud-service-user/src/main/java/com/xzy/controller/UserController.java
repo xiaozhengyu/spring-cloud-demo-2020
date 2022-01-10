@@ -3,7 +3,9 @@ package com.xzy.controller;
 import com.xzy.entities.UserEntity;
 import com.xzy.msg.MessageBox;
 import com.xzy.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/user/user")
+@Slf4j
 public class UserController {
+    @Value("${server.port}")
+    private String serverPort;
+
     private final UserService userService;
 
     @Autowired
@@ -33,6 +39,7 @@ public class UserController {
      */
     @GetMapping("/{id}")
     public MessageBox<UserEntity> findByPrimaryKey(@PathVariable("id") Long id) {
-        return MessageBox.ok(userService.findByPrimaryKey(id));
+        String msg = "server port " + serverPort;
+        return MessageBox.ok(msg, userService.findByPrimaryKey(id));
     }
 }
