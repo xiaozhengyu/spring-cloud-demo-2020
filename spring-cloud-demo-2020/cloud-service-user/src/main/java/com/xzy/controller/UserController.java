@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 /**
  * 用户管理
  *
@@ -39,7 +41,7 @@ public class UserController {
      */
     @GetMapping("/{id}")
     public MessageBox<UserEntity> findByPrimaryKey(@PathVariable("id") Long id) {
-        String msg = "server port " + serverPort;
+        String msg = "Server port：" + serverPort + "  UUID：" + UUID.randomUUID().toString();
         return MessageBox.ok(msg, userService.findByPrimaryKey(id));
     }
 }
