@@ -11,8 +11,8 @@
 
     <modules>
         <module>cloud-api-common</module>
+        <module>cloud-register-eureka</module>
         <module>cloud-service-payment</module>
-        <module>cloud-service-user</module>
         <module>cloud-service-user</module>
     </modules>
 
