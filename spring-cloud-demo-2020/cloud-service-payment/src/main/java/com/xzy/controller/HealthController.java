@@ -21,7 +21,7 @@ import java.util.Map;
  * @date 2022/1/6 10:55
  */
 @RestController
-@RequestMapping(path = "/health")
+@RequestMapping(path = "/payment/health")
 public class HealthController {
     @Value("${server.port}")
     private String serverPort;
@@ -31,11 +31,6 @@ public class HealthController {
     @Autowired
     public HealthController(DiscoveryClient discoveryClient) {
         this.discoveryClient = discoveryClient;
-    }
-
-    @GetMapping("/service")
-    MessageBox<String> getServerInfo() {
-        return MessageBox.ok("from " + serverPort);
     }
 
     @GetMapping("/instance")
