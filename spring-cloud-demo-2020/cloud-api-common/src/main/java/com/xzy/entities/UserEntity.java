@@ -8,18 +8,18 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
- * 支付实体
+ * 用户信息
  *
  * @author xzy
- * @date 2022/1/4 15:43
+ * @date 2022/1/10 9:55
  */
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaymentEntity implements Serializable {
+public class UserEntity implements Serializable {
 
-    private static final long serialVersionUID = 4252962612719401808L;
+    private static final long serialVersionUID = -1753663566807763438L;
 
     /**
      * 主键
@@ -27,7 +27,18 @@ public class PaymentEntity implements Serializable {
     private Long id;
 
     /**
-     * 流水号
+     * 姓名
      */
-    private String serial;
+    private String name;
+
+    /**
+     * 性别
+     */
+    private String sex;
+
+    /**
+     * 年龄
+     */
+    private Integer age;
+
 }

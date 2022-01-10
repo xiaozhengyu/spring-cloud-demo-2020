@@ -10,10 +10,11 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>cloud-provider-payment</module>
-        <module>cloud-consumer-order</module>
         <module>cloud-api-common</module>
-        <module>cloud-register-eureka</module>
+        <module>cloud-service-order</module>
+        <module>cloud-service-payment</module>
+        <module>cloud-service-user</module>
+        <module>cloud-service-user</module>
     </modules>
 
     <!--参数管理-->
