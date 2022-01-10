@@ -35,6 +35,8 @@
         <mybatis.spring.boot.version>2.2.0</mybatis.spring.boot.version>
         <lombok.version>1.18.20</lombok.version>
         <zookeeper.discovery.version>3.0.4</zookeeper.discovery.version>
+        <consul.discovery.version>3.0.4</consul.discovery.version>
+        <joda.time.version>2.10.5</joda.time.version>
     </properties>
 
     <!--依赖管理：锁定版本-->
@@ -99,6 +101,17 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-zookeeper-discovery</artifactId>
                 <version>${zookeeper.discovery.version}</version>
+            </dependency>
+            <!--consul-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+                <version>${consul.discovery.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda.time.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
