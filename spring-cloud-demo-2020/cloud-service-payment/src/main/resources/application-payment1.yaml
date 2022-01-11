@@ -18,3 +18,6 @@ eureka:
 #feign:
 #  httpclient:
 #    connection-timeout: 3000 # 连接超时，默认2秒
+logging:
+  level:
+    com.xzy.feign: debug
