@@ -52,6 +52,11 @@
         </dependency>
         <!--ribbon-->
         <!--spring-cloud-starter-netflix-eureka-client已经包含了ribbon，所以可以不用额外引入-->
+        <!--openFeign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
