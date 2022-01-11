@@ -1,12 +1,10 @@
 package com.xzy;
 
-import com.rule.LoadBalancerRuleConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
-import org.springframework.cloud.netflix.ribbon.RibbonClients;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * 支付服务
@@ -17,10 +15,7 @@ import org.springframework.cloud.netflix.ribbon.RibbonClients;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
-@RibbonClients({
-        // 为每个服务调用单独设置负载均衡规则
-        @RibbonClient(name = "cloud-user-service", configuration = LoadBalancerRuleConfig.class)
-})
+@EnableFeignClients
 public class PaymentApplication {
     public static void main(String[] args) {
         SpringApplication.run(PaymentApplication.class, args);
