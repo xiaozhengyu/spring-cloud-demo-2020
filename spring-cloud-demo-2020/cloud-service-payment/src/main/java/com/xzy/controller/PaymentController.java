@@ -28,10 +28,6 @@ public class PaymentController {
 
     @GetMapping("/get_user_info")
     public MessageBox<Object> getUserInfo(@RequestParam("user_id") Long userId) {
-        /*ParameterizedTypeReference<MessageBox<Object>> typeReference = new ParameterizedTypeReference<MessageBox<Object>>() {};
-        ResponseEntity<MessageBox<Object>> responseEntity = restTemplate.exchange(INVOKE_URL + "/user/user/" + userId, HttpMethod.GET, null, typeReference);
-        return responseEntity.getBody();*/
-        
         return restTemplate.getForObject(INVOKE_URL + "/user/user/" + userId, MessageBox.class);
     }
 }
