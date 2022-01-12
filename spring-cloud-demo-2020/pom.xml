@@ -36,6 +36,7 @@
         <lombok.version>1.18.20</lombok.version>
         <zookeeper.discovery.version>3.0.4</zookeeper.discovery.version>
         <starter.openfeign.version>3.1.0</starter.openfeign.version>
+        <starter.hystrix.version>1.4.7.RELEASE</starter.hystrix.version>
     </properties>
 
     <!--依赖管理：锁定版本-->
@@ -106,6 +107,12 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
                 <version>${starter.openfeign.version}</version>
+            </dependency>
+            <!--hystrix-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>${starter.hystrix.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
