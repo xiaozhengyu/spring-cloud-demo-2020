@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 @Service
 @FeignClient("cloud-user-service")
-public interface UserControllerFeign {
+public interface UserServiceFeign {
 
     /**
      * 根据主键查询用户信息
@@ -23,4 +23,16 @@ public interface UserControllerFeign {
      */
     @GetMapping("/user/user/{id}") // 注意这个地址！
     MessageBox<UserEntity> findByPrimaryKey(@PathVariable("id") Long id);
+
+    /**
+     * 处理时间很慢的RPO
+     */
+    @GetMapping("/user/delay/delay")
+    MessageBox<String> delayRpo();
+
+    /**
+     * 服务降级：处理超时或出现异常，执行 ”Plan B“
+     */
+    @GetMapping("/user/delay/delay_with_fallback")
+    MessageBox<String> delayRpoWithFallback();
 }

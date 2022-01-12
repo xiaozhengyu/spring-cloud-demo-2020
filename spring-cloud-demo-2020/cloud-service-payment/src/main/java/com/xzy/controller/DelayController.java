@@ -1,6 +1,6 @@
 package com.xzy.controller;
 
-import com.xzy.feign.DelayControllerFeign;
+import com.xzy.feign.UserServiceFeign;
 import com.xzy.msg.MessageBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,26 +16,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "/payment/delay")
 public class DelayController {
-    private final DelayControllerFeign delayControllerFeign;
+    private final UserServiceFeign userServiceFeign;
 
     @Autowired
-    public DelayController(DelayControllerFeign delayControllerFeign) {
-        this.delayControllerFeign = delayControllerFeign;
+    public DelayController(UserServiceFeign userServiceFeign) {
+        this.userServiceFeign = userServiceFeign;
     }
 
     /**
-     * 躺平：如果RPO调用失败，直接将失败信息返回，如果RPO响应缓慢，直接慢慢等待。
+     * 下行服务直接躺平：处理缓慢 + 可能抛出异常
      */
     @GetMapping("/delay")
     public MessageBox<String> delayRpo() {
-        return delayControllerFeign.delayRpo();
+        return userServiceFeign.delayRpo();
     }
 
     /**
-     * 客户端服务降级
+     * 下行服务有服务降级机制：在有限时间内返回有效结果
      */
-    @GetMapping("/delay")
+    @GetMapping("/delay_with_fallback")
     public MessageBox<String> delayRpoWithClientFallback() {
-        return delayControllerFeign.delayRpo();
+        return userServiceFeign.delayRpoWithFallback();
     }
 }

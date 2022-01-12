@@ -1,7 +1,7 @@
 package com.xzy.controller;
 
 import com.xzy.entities.UserEntity;
-import com.xzy.feign.UserControllerFeign;
+import com.xzy.feign.UserServiceFeign;
 import com.xzy.msg.MessageBox;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "/payment/user")
 public class UserController {
-    private final UserControllerFeign userControllerFeign;
+    private final UserServiceFeign userServiceFeign;
 
     @Autowired
-    public UserController(UserControllerFeign userControllerFeign) {
-        this.userControllerFeign = userControllerFeign;
+    public UserController(UserServiceFeign userServiceFeign) {
+        this.userServiceFeign = userServiceFeign;
     }
 
     @GetMapping("/get_user_info")
     public MessageBox<UserEntity> getUserInfo(@RequestParam("user_id") Long userId) {
-        return userControllerFeign.findByPrimaryKey(userId);
+        return userServiceFeign.findByPrimaryKey(userId);
     }
 }

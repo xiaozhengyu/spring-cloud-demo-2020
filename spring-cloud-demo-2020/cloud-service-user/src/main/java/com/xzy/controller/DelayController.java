@@ -1,14 +1,12 @@
 package com.xzy.controller;
 
 import com.xzy.msg.MessageBox;
+import com.xzy.service.DelayService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 模拟下行服务延时
@@ -20,28 +18,26 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("/user/delay")
 @Slf4j
 public class DelayController {
-    @Value("${server.port}")
-    private String serverPort;
+    private final DelayService delayService;
+
+    @Autowired
+    public DelayController(DelayService delayService) {
+        this.delayService = delayService;
+    }
 
     /**
-     * 处理时间很慢的RPO
+     * 直接躺平：慢慢处理 + 抛出异常
      */
     @GetMapping("/delay")
     public MessageBox<String> delayRpo() {
-        // 模拟：出现异常
-        if (Math.random() > 0.5) {
-            throw new IllegalArgumentException("随机异常");
-        }
+        return delayService.delayRpo();
+    }
 
-        // 模拟：处理缓慢
-        int delayMilliseconds = 5000;
-        try {
-            TimeUnit.MILLISECONDS.sleep(delayMilliseconds);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        String msg = "Server port：" + serverPort + " UUID：" + UUID.randomUUID().toString() + " Current thread：" + Thread.currentThread();
-        return MessageBox.ok(msg);
+    /**
+     * 服务降级：如果处理超时或出现异常，执行 ”Plan B“
+     */
+    @GetMapping("/delay_with_fallback")
+    public MessageBox<String> delayRpoWithFallback() {
+        return delayService.delayRpoWithFallback();
     }
 }
