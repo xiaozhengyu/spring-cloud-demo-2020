@@ -16,3 +16,11 @@ eureka:
     fetch-registry: true # 是否需要检索服务
     service-url:
       defaultZone: http://eureka-register1:7001/eureka/,http://eureka-register2:7002/eureka/,http://eureka-register3:7003/eureka/
+
+feign:
+  httpclient:
+    connection-timeout: 10000 # 连接超时，默认2秒
+
+logging:
+  level:
+    com.xzy.feign: debug
