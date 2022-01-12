@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * 调用处理非常缓慢的RPO
+ *
  * @author xzy
  * @date 2022/1/4 15:51
  */
@@ -22,7 +24,7 @@ public class DelayController {
     }
 
     /**
-     * 处理时间很慢的RPO
+     * 躺平：如果RPO调用失败，直接将失败信息返回，如果RPO响应缓慢，直接慢慢等待。
      */
     @GetMapping("/delay")
     public MessageBox<String> delayRpo() {
@@ -30,7 +32,7 @@ public class DelayController {
     }
 
     /**
-     * 处理时间很慢的RPO
+     * 客户端服务降级
      */
     @GetMapping("/delay")
     public MessageBox<String> delayRpoWithClientFallback() {

@@ -28,7 +28,12 @@ public class DelayController {
      */
     @GetMapping("/delay")
     public MessageBox<String> delayRpo() {
-        // 模拟处理时间
+        // 模拟：出现异常
+        if (Math.random() > 0.5) {
+            throw new IllegalArgumentException("随机异常");
+        }
+
+        // 模拟：处理缓慢
         int delayMilliseconds = 5000;
         try {
             TimeUnit.MILLISECONDS.sleep(delayMilliseconds);
