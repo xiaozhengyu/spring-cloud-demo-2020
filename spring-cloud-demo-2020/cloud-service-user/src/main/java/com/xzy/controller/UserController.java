@@ -41,7 +41,7 @@ public class UserController {
      */
     @GetMapping("/{id}")
     public MessageBox<UserEntity> findByPrimaryKey(@PathVariable("id") Long id) {
-        String msg = "Server port：" + serverPort + "  UUID：" + UUID.randomUUID().toString();
+        String msg = "Server port：" + serverPort + " UUID：" + UUID.randomUUID().toString() + " Current thread：" + Thread.currentThread();
         return MessageBox.ok(msg, userService.findByPrimaryKey(id));
     }
 }

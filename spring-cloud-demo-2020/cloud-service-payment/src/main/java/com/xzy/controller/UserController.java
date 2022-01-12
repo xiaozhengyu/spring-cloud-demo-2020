@@ -10,18 +10,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 支付Controller
- *
  * @author xzy
  * @date 2022/1/4 15:51
  */
 @RestController
-@RequestMapping(path = "/payment/payment")
-public class PaymentController {
+@RequestMapping(path = "/payment/user")
+public class UserController {
     private final UserControllerFeign userControllerFeign;
 
     @Autowired
-    public PaymentController(UserControllerFeign userControllerFeign) {
+    public UserController(UserControllerFeign userControllerFeign) {
         this.userControllerFeign = userControllerFeign;
     }
 
