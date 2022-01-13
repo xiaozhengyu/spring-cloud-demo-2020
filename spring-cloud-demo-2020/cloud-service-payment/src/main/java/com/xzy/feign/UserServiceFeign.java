@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @date 2022/1/11 14:10
  */
 @Service
-@FeignClient(value = "cloud-user-service",fallback = UserServiceFeignImpl.class)
+@FeignClient(value = "cloud-user-service",fallback = UserServiceFeignFallback.class)
 public interface UserServiceFeign {
 
     /**

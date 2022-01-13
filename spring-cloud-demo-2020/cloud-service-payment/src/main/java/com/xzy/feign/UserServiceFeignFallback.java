@@ -14,9 +14,9 @@ import java.util.UUID;
  * @author xzy
  * @date 2022/1/13  16:31
  */
-@Service
 @Slf4j
-public class UserServiceFeignImpl implements UserServiceFeign {
+@Service
+public class UserServiceFeignFallback implements UserServiceFeign {
 
     @Value("${server.port}")
     private String serverPort;
