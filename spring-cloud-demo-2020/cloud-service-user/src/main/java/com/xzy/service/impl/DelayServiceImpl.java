@@ -61,7 +61,7 @@ public class DelayServiceImpl implements DelayService {
 
     public MessageBox<String> planB() {
         log.info("处理失败，出现异常或超时，进行服务降级...");
-        String msg = "Server port：" + serverPort + " UUID：" + UUID.randomUUID().toString() + " Current thread：" + Thread.currentThread() + " (Plan B)";
+        String msg = "Server port：" + serverPort + " UUID：" + UUID.randomUUID().toString() + " Current thread：" + Thread.currentThread() + " (Plan B：下行服务)";
         return MessageBox.ok(msg);
     }
 }
