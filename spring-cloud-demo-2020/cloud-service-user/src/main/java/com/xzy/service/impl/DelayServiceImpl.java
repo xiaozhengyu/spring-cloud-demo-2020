@@ -27,20 +27,21 @@ public class DelayServiceImpl implements DelayService {
     @Override
     public MessageBox<String> delayRpo() {
         // 模拟：出现异常
-        if (Math.random() > 0.3) {
-            log.error("处理时出现异常...");
+        if (Math.random() > 0.7) { // 30%概率的出现异常
+            log.info("抛出异常");
             throw new IllegalArgumentException("随机异常");
         }
 
         // 模拟：处理缓慢
-        int delayMilliseconds = 5000;
+        int delayMilliseconds = (int) (Math.random() * 10000); // 随机处理时间 0~10000ms
         try {
-            log.error("处理时间超时...");
+            log.info("执行时间：{}ms", delayMilliseconds);
             TimeUnit.MILLISECONDS.sleep(delayMilliseconds);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
+        log.info("正常处理...");
         String msg = "Server port：" + serverPort + " UUID：" + UUID.randomUUID().toString() + " Current thread：" + Thread.currentThread();
         return MessageBox.ok(msg);
     }
@@ -50,7 +51,7 @@ public class DelayServiceImpl implements DelayService {
      */
     @Override
     @HystrixCommand(fallbackMethod = "planB", commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000") // 超时时间
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000") // 超时时间
     })
     public MessageBox<String> delayRpoWithFallback() {
         return delayRpo();
@@ -59,7 +60,8 @@ public class DelayServiceImpl implements DelayService {
     /*----------fallback method----------*/
 
     public MessageBox<String> planB() {
-        String msg = "Server port：" + serverPort + " UUID：" + UUID.randomUUID().toString() + " Current thread：" + Thread.currentThread() + " (Plan B) ";
+        log.error("处理失败，出现异常或超时...");
+        String msg = "Server port：" + serverPort + " UUID：" + UUID.randomUUID().toString() + " Current thread：" + Thread.currentThread() + " (Plan B)";
         return MessageBox.ok(msg);
     }
 }
