@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: cloud-user-service
+  cloud:
+    circuitbreaker:
+      hystrix:
+        enabled: true
 
 eureka:
   instance:
