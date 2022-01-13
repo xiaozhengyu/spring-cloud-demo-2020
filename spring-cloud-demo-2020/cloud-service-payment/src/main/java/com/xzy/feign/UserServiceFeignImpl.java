@@ -29,7 +29,7 @@ public class UserServiceFeignImpl implements UserServiceFeign {
      */
     @Override
     public MessageBox<UserEntity> findByPrimaryKey(Long id) {
-        log.info("处理失败，出现异常或超时，进行服务降级...");
+        log.info("findByPrimaryKey() 处理失败，出现异常或超时，进行服务降级...");
         String msg = "Server port：" + serverPort + " UUID：" + UUID.randomUUID().toString() + " Current thread：" + Thread.currentThread() + " (Plan B：上行服务)";
         return MessageBox.ok(msg, null);
     }
@@ -39,7 +39,7 @@ public class UserServiceFeignImpl implements UserServiceFeign {
      */
     @Override
     public MessageBox<String> delayRpo() {
-        log.info("处理失败，出现异常或超时，进行服务降级...");
+        log.info("delayRpo() 处理失败，出现异常或超时，进行服务降级...");
         String msg = "Server port：" + serverPort + " UUID：" + UUID.randomUUID().toString() + " Current thread：" + Thread.currentThread() + " (Plan B：上行服务)";
         return MessageBox.ok(msg);
     }
@@ -49,7 +49,7 @@ public class UserServiceFeignImpl implements UserServiceFeign {
      */
     @Override
     public MessageBox<String> delayRpoWithFallback() {
-        log.info("处理失败，出现异常或超时，进行服务降级...");
+        log.info("delayRpoWithFallback() 处理失败，出现异常或超时，进行服务降级...");
         String msg = "Server port：" + serverPort + " UUID：" + UUID.randomUUID().toString() + " Current thread：" + Thread.currentThread() + " (Plan B：上行服务)";
         return MessageBox.ok(msg);
     }
