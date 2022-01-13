@@ -21,6 +21,10 @@ feign:
   httpclient:
     connection-timeout: 10000 # 连接超时，默认2秒
 
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
 logging:
   level:
     com.xzy.feign: debug
