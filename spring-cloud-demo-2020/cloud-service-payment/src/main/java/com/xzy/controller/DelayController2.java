@@ -39,6 +39,7 @@ public class DelayController2 {
      * 下行服务直接躺平 + 上行服务直接躺平
      */
     @GetMapping("/delay_with_no_fallback")
+    @HystrixCommand
     public MessageBox<String> delayRpo() {
         return userServiceFeign.delayRpo();
     }
@@ -58,6 +59,7 @@ public class DelayController2 {
      * 下行服务设置服务降级机制 + 上行服务躺平
      */
     @GetMapping("/delay_with_downlink_fallback")
+    @HystrixCommand
     public MessageBox<String> delayRpoWithDownlinkServiceFallback() {
         return userServiceFeign.delayRpoWithFallback();
     }
