@@ -1,7 +1,5 @@
 package com.xzy.controller;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.xzy.feign.UserServiceFeign;
 import com.xzy.msg.MessageBox;
 import lombok.extern.slf4j.Slf4j;
@@ -29,25 +27,6 @@ public class DelayController {
     }
 
     /**
-     * 下行服务直接躺平 + 上行服务直接躺平
-     */
-    @GetMapping("/delay_with_no_fallback")
-    public MessageBox<String> delayRpo() {
-        return userServiceFeign.delayRpo();
-    }
-
-    /**
-     * 下行服务直接躺平 + 上行服务设置服务降级机制
-     */
-    @GetMapping("/delay_with_uplink_fallback")
-    @HystrixCommand(commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000") // 超时时间
-    })
-    public MessageBox<String> delayRpoWithUplinkServiceFallback() {
-        return userServiceFeign.delayRpo();
-    }
-
-    /**
      * 下行服务设置服务降级机制 + 上行服务躺平
      */
     @GetMapping("/delay_with_downlink_fallback")
@@ -59,9 +38,6 @@ public class DelayController {
      * 下行服务设置服务降级机制 + 上行服务设置服务降级机制
      */
     @GetMapping("/delay_with_updown_fallback")
-    @HystrixCommand(commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000") // 超时时间
-    })
     public MessageBox<String> delayRpoWithUplinkAndDownlinkServiceFallback() {
         return userServiceFeign.delayRpoWithFallback();
     }

@@ -31,6 +31,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserEntity findByPrimaryKey(Long id) {
+        if (!TEST_RECORDS.containsKey(id)) {
+            throw new IllegalArgumentException("无效的ID");
+        }
         return TEST_RECORDS.get(id);
     }
 }
