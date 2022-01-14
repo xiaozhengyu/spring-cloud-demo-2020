@@ -8,5 +8,5 @@
 -   phase2-consul：注册中心-Consul
 -   phase3-ribbon：负载均衡-Ribbon
 -   phase4-openfeign：服务调用-OpenFeign
--   phase5-hystrix：服务治理-Hystrix
+-   phase5-hystrix：容错保护-Hystrix
 
