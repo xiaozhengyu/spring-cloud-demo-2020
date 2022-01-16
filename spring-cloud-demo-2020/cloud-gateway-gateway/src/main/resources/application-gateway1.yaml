@@ -4,6 +4,20 @@ server:
 spring:
   application:
     name: cloud-gateway
+  cloud:
+    # 网关路由
+    gateway:
+      routes:
+        - id: payment_routh              # 路由ID（唯一）
+          uri: http://localhost:9001     # http://localhost:8011/payment/**  ->  http://localhost:9001/payment/**
+          predicates:
+            - Path=/payment/**
+
+        - id: user_routh
+          uri: http://localhost:8001    # http://localhost:8011/user/**  ->  http://localhost:8001/user/**
+          predicates:
+            - Path=/user/**
+
 
 eureka:
   instance:
