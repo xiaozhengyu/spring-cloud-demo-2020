@@ -13,15 +13,6 @@
     <description>网关路由</description>
     
     <dependencies>
-        <!--spring-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
         <!--spring-boot-tools-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
