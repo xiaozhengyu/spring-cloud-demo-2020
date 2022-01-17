@@ -10,3 +10,4 @@
 -   phase4-openfeign：服务调用-OpenFeign
 -   phase5-hystrix：容错保护-Hystrix
 -   phase6-gateway：服务网关
+-   phase7-config：配置中心
