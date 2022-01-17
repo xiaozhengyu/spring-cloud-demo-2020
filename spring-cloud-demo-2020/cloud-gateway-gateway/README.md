@@ -19,4 +19,16 @@ spring:
             - Path=/user/**
 ```
 
+或
+
+```java
+    @Bean
+    public RouteLocator routes(RouteLocatorBuilder builder) {
+        RouteLocatorBuilder.Builder routes = builder.routes();
+        routes.route("payment_route", r -> r.path("/payment/**").uri("http://localhost:9001"));
+        routes.route("user_route", r -> r.path("/user/**").uri("http://localhost:8001"));
+        return routes.build();
+    }
+```
+
 显然，在分布式场景下这种方式是不适用的（服务的地址可能会变化）
