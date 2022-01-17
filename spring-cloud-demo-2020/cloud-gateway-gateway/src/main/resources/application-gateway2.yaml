@@ -1,0 +1,30 @@
+server:
+  port: 8012
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    # 网关路由
+    gateway:
+      routes:
+        - id: payment_route                # 路由ID（唯一）
+          uri: lb://cloud-payment-service  # 通过配置服务名实现动态路由
+          predicates:                      # 1.先从注册中心查询cloud-payment-service的实例列表，然后根据负载均衡策略选择一个实例
+            - Path=/payment/**             # 2.http://localhost:8012/payment/**  -->  http://{实例地址}/payment/**
+
+        - id: user_route
+          uri: lb://cloud-user-service
+          predicates:
+            - Path=/user/**
+
+
+eureka:
+  instance:
+    instance-id: cloud-gateway8011
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true # 是否向注册中心注册自己
+    fetch-registry: true # 是否需要检索服务
+    service-url:
+      defaultZone: http://eureka-register1:7001/eureka/,http://eureka-register2:7002/eureka/,http://eureka-register3:7003/eureka/
