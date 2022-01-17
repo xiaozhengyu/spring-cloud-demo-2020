@@ -7,6 +7,9 @@ spring:
   cloud:
     # 网关路由
     gateway:
+      discovery:
+        locator:
+          enabled: true                    # 从注册中心获取服务实例地址，动态路由
       routes:
         - id: payment_route                # 路由ID（唯一）
           uri: lb://cloud-payment-service  # 通过配置服务名实现动态路由
