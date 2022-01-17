@@ -37,7 +37,7 @@
         <lombok.version>1.18.20</lombok.version>
         <zookeeper.discovery.version>3.0.4</zookeeper.discovery.version>
         <starter.openfeign.version>2.2.9.RELEASE</starter.openfeign.version>
-        <starter.gateway.version>2.2.9.RELEASE</starter.gateway.version>
+        <starter.gateway.version>2.2.4.RELEASE</starter.gateway.version>
     </properties>
 
     <!--依赖管理：锁定版本-->
